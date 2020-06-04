@@ -8,6 +8,7 @@ class HomePage extends StatelessWidget {
   static final routeName = '/home';
   @override
   Widget build(BuildContext context) {
+    
     final mediaQuery = MediaQuery.of(context);
     final products = Provider.of<Product>(context).products;
     final productData = Provider.of<Product>(context);
@@ -55,6 +56,12 @@ class HomePage extends StatelessWidget {
                                 children: <Widget>[
                                   Text(
                                     products[index].name,
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    products[index].quantity.toString(),
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold),

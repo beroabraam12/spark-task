@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:spark_task/pages/register.dart';
 import 'package:spark_task/providers/user.dart';
 
 import '../component/LoginPage/email.dart';
 import '../component/LoginPage/password.dart';
+import '../component/LoginPage/confirm_pass.dart';
 import 'home.dart';
+import 'login.dart';
 
-class LoginPage extends StatefulWidget {
-  static final routeName = '/';
+class RegisterPage extends StatefulWidget {
+  static final routeName = '/register';
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool _isLoading = false;
+  final TextEditingController _passwordTextController = TextEditingController();
 
   Future submitLogin(context) async {
-    final signin = Provider.of<User>(context, listen: false).signin;
+    final signup = Provider.of<User>(context, listen: false).signup;
     if (!_formKey.currentState.validate()) {
       return;
     }
@@ -28,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
     });
     _formKey.currentState.save();
     //
-    var success = await signin();
+    var success = await signup();
     if (success) {
       setState(() {
         _isLoading = false;
@@ -78,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   Container(
                     height: (mediaQuery.size.height - mediaQuery.padding.top) *
-                        0.25,
+                        0.3,
                     child: Form(
                       key: _formKey,
                       child: Column(
@@ -87,13 +89,14 @@ class _LoginPageState extends State<LoginPage> {
                             child: EmailText(mediaQuery),
                             flex: 3,
                           ),
-                          SizedBox(
-                            height: (mediaQuery.size.height -
-                                    mediaQuery.padding.top) *
-                                0.05,
+                          Expanded(
+                            child: PasswordText(
+                                mediaQuery, _passwordTextController),
+                            flex: 3,
                           ),
                           Expanded(
-                            child: PasswordText(mediaQuery, null),
+                            child: ConfirmPasswordText(
+                                mediaQuery, _passwordTextController),
                             flex: 3,
                           ),
                         ],
@@ -116,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                         : RaisedButton(
                             onPressed: () => submitLogin(context),
                             child: Text(
-                              "LOGIN",
+                              "Register",
                               style: TextStyle(fontSize: 18.0),
                             ),
                             textColor: Theme.of(context).textTheme.button.color,
@@ -126,9 +129,9 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                   ),
                   FlatButton(
-                      child: Text("Signup?"),
-                      onPressed: () => Navigator.of(context)
-                          .pushNamed(RegisterPage.routeName)),
+                      child: Text("Login?"),
+                      onPressed: () =>
+                          Navigator.of(context).pushNamed(LoginPage.routeName)),
                 ],
               ),
             ),

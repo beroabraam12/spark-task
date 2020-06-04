@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 class ProductModel {
   String id, name, image;
+  int quantity = 0;
   ProductModel({
     @required this.id,
     @required this.name,
@@ -41,9 +42,11 @@ class Product with ChangeNotifier {
 
   selectProduct(ProductModel p) {
     if (_selectedProducts.contains(p)) {
+      _selectedProducts.firstWhere((element) => p.id == element.id).quantity++;
     } else {
+      p.quantity++;
       _selectedProducts.insert(0, p);
-      notifyListeners();
     }
+    notifyListeners();
   }
 }

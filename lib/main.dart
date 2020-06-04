@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:spark_task/pages/cart.dart';
 import 'package:spark_task/pages/home.dart';
 import 'package:spark_task/pages/login.dart';
+import 'package:spark_task/pages/register.dart';
 
 import 'providers/user.dart';
 import 'providers/product.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           LoginPage.routeName: (BuildContext ctx) => LoginPage(),
+          RegisterPage.routeName: (BuildContext ctx) => RegisterPage(),
           HomePage.routeName: (BuildContext ctx) => HomePage(),
           CartPage.routeName: (BuildContext ctx) => CartPage(),
         },

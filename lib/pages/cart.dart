@@ -43,6 +43,11 @@ class CartPage extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.bold),
                           ),
+                          Text(
+                            selectedProducts[index].quantity.toString(),
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
                         ],
                       ),
                     )
