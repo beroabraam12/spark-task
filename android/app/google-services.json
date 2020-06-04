@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "970937721577",
+    "firebase_url": "https://spark-task.firebaseio.com",
+    "project_id": "spark-task",
+    "storage_bucket": "spark-task.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970937721577:android:d4666f64d2daf04f244678",
+        "android_client_info": {
+          "package_name": "com.example.spark_task"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "970937721577-okdrqgno9mbgqo6o11k0ld54nhskv2u8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.spark_task",
+            "certificate_hash": "1dd519eb5f601f7a188a55445ed08d9e393d5840"
+          }
+        },
+        {
+          "client_id": "970937721577-3pn4f7chr2j9gemp31gd4djrkaai5f37.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqxYSa0_rDdIuQkJbeC_uYVmc7Cx3wUy8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "970937721577-3pn4f7chr2j9gemp31gd4djrkaai5f37.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
